@@ -1,0 +1,15 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#9FCFFF"/>
+  <!-- back card -->
+  <rect x="28" y="30" width="40" height="32" rx="3" stroke="white" stroke-width="3" fill="none" transform="rotate(-6 28 30)"/>
+  <!-- front polaroid -->
+  <rect x="30" y="34" width="40" height="40" rx="3" stroke="white" stroke-width="3" fill="none"/>
+  <rect x="30" y="64" width="40" height="10" rx="2" fill="white"/>
+  <!-- mini mountain + sun inside -->
+  <path d="M36 56L42 48L48 56H36Z" fill="white"/>
+  <circle cx="56" cy="48" r="3" fill="white"/>
+  <!-- plus -->
+  <circle cx="72" cy="30" r="9" fill="white"/>
+  <line x1="72" y1="25.5" x2="72" y2="34.5" stroke="#9FCFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="67.5" y1="30" x2="76.5" y2="30" stroke="#9FCFFF" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
