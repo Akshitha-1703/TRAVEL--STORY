@@ -1,6 +1,5 @@
 require("dotenv").config();
 
-const config = require("./config.json");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const express = require("express");
@@ -17,7 +16,13 @@ const TravelStory = require("./models/travelStory.model");
 const { error } = require("console");
 
 
-mongoose.connect(config.connectionString);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("MongoDB connected"))
+.catch(err => console.error("MongoDB connection error:", err));
+
 
 const app = express();
 app.use(express.json());
@@ -126,7 +131,7 @@ app.post("/image-upload", upload.single("image"), async (req, res) => {
                 .json({ error: true, message: "No image uploaded"});
         }
 
-        const imageUrl = `http://localhost:8000/uploads/${req.file.filename}`;
+        const imageUrl = `${process.env.BASE_URL}/uploads/${req.file.filename}`;
 
         res.status(200).json({ imageUrl });
     } catch (error) {
@@ -238,7 +243,7 @@ app.put("/edit-story/:id", authenticateToken, async (req, res) => {
             .json({ error: true, message: "Travel story not found" });
         }
 
-        const placeholderImgurl = `http://localhost:8000/assets/placeholder.png`;
+        const placeholderImgurl = `${process.env.BASE_URL}/assets/placeholder.png`;
 
         travelStory.title = title;
         travelStory.story = story;
